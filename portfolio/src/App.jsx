@@ -133,7 +133,7 @@ function Win({ path, children, className = '', accent = false, delay = 0 }) {
 /* Circular framed photo — matches the reference. Falls back to initials. */
 function Avatar() {
   const [ok, setOk] = useState(true)
-  const initials = ME.name.split(' ').map((w) => w[0]).join('').slice(0, 2)
+  const initials = 'AB'
   return (
     <div className="relative mx-auto">
       <div className="grid h-44 w-44 place-items-center overflow-hidden rounded-full border-2 border-ink bg-[#3f513f] shadow-win">
