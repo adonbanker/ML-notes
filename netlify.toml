@@ -1,0 +1,18 @@
+# Netlify build config for the portfolio site (lives in /portfolio).
+# Connect this repo at https://app.netlify.com → "Add new site" → "Import an
+# existing project" → pick adonbanker/ml-notes. These settings are picked up
+# automatically; no manual fields needed.
+
+[build]
+  base = "portfolio"          # run the build from the portfolio subfolder
+  command = "npm run build"   # vite build
+  publish = "dist"            # output dir (relative to base)
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Single-page app: serve index.html for any path (harmless here; future-proof).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
