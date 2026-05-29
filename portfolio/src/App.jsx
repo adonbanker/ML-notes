@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import useReveal from './useReveal'
+import useDrag from './useDrag'
+import Boot from './Boot'
 import {
   FolderIcon,
   ProfileIcon,
@@ -93,29 +95,37 @@ const LANGUAGES = ['English', 'Hindi', 'Marathi', 'Hebrew', 'Spanish']
 /* ------------------------------------------------------------------ */
 function Win({ path, children, className = '', accent = false, delay = 0 }) {
   const [ref, shown] = useReveal()
+  const { handleRef, style, dragging } = useDrag()
   return (
+    // Outer element owns the scroll-reveal animation (animate-win-open uses
+    // fill-mode:both, which would otherwise clobber the drag transform).
     <div
       ref={ref}
-      style={{ animationDelay: `${delay}ms` }}
-      className={`win-border bg-cream shadow-win-lg ${
-        shown ? 'animate-win-open' : 'opacity-0'
-      } ${className}`}
+      style={{ animationDelay: `${delay}ms`, zIndex: style.zIndex }}
+      className={`relative ${shown ? 'animate-win-open' : 'opacity-0'} ${className}`}
     >
+      {/* Inner element owns the drag transform — kept separate on purpose. */}
       <div
-        className={`flex items-center justify-between gap-2 border-b-2 border-ink px-2.5 py-1.5 ${
-          accent ? 'bg-accent text-cream' : 'bg-olive text-cream'
-        }`}
+        style={{ transform: style.transform, transition: style.transition }}
+        className={`win-border bg-cream shadow-win-lg ${dragging ? 'select-none' : ''}`}
       >
-        <div className="flex items-center gap-2 overflow-hidden">
-          <span className="h-3 w-3 border-2 border-ink bg-cream/90" aria-hidden="true" />
-          <p className="truncate font-mono text-base leading-none tracking-wide">{path}</p>
+        <div
+          ref={handleRef}
+          className={`flex touch-none items-center justify-between gap-2 border-b-2 border-ink px-2.5 py-1.5 md:cursor-grab md:active:cursor-grabbing ${
+            accent ? 'bg-accent text-cream' : 'bg-olive text-cream'
+          }`}
+        >
+          <div className="flex items-center gap-2 overflow-hidden">
+            <span className="h-3 w-3 border-2 border-ink bg-cream/90" aria-hidden="true" />
+            <p className="truncate font-mono text-base leading-none tracking-wide">{path}</p>
+          </div>
+          <div className="flex gap-1" aria-hidden="true">
+            <span className="grid h-4 w-4 place-items-center border-2 border-ink bg-cream text-[10px] font-black text-ink">_</span>
+            <span className="grid h-4 w-4 place-items-center border-2 border-ink bg-cream text-[10px] font-black text-ink">×</span>
+          </div>
         </div>
-        <div className="flex gap-1" aria-hidden="true">
-          <span className="grid h-4 w-4 place-items-center border-2 border-ink bg-cream text-[10px] font-black text-ink">_</span>
-          <span className="grid h-4 w-4 place-items-center border-2 border-ink bg-cream text-[10px] font-black text-ink">×</span>
-        </div>
+        <div className="p-5 sm:p-6">{children}</div>
       </div>
-      <div className="p-5 sm:p-6">{children}</div>
     </div>
   )
 }
@@ -191,6 +201,7 @@ function SocialBar() {
 /* ------------------------------------------------------------------ */
 export default function App() {
   const [clock, setClock] = useState('')
+  const [booting, setBooting] = useState(true)
   useEffect(() => {
     const tick = () =>
       setClock(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))
@@ -201,6 +212,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen pb-24">
+      {booting && <Boot onDone={() => setBooting(false)} />}
       <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {/* HERO */}
         <header className="animate-fade-up">
@@ -223,6 +235,9 @@ export default function App() {
           <div className="mt-8 animate-fade-up" style={{ animationDelay: '120ms' }}>
             <SocialBar />
           </div>
+          <p className="mt-3 hidden text-center font-mono text-xs text-ink/50 md:block">
+            tip: grab a window's title bar to drag it around ✦
+          </p>
         </header>
 
         {/* PROFILE */}
