@@ -23,7 +23,6 @@ const ME = {
   summary:
     'Highly motivated IBDP student with strong interests in Data Science, Mathematics, and Computer Science. Experienced in AI-focused research, community-driven sustainability initiatives, and leadership across social impact, heritage preservation, and STEM innovation.',
   email: 'bankeradon@gmail.com',
-  phone: '+91 84518 77769',
   linkedin: 'https://www.linkedin.com/in/adon-s-banker-3517162b6/',
   github: 'https://github.com/adonbanker',
   resume: './Adon_Banker_Resume.pdf',
@@ -88,7 +87,6 @@ const AWARDS = [
   'Silver Star Medallion — Bribooks (2024)',
 ]
 
-const LANGUAGES = ['English', 'Hindi', 'Marathi', 'Hebrew', 'Spanish']
 
 /* ------------------------------------------------------------------ */
 /*  Reusable retro window                                              */
@@ -165,14 +163,6 @@ function Folder({ label, target, Icon = FolderIcon }) {
         {label}
       </span>
     </a>
-  )
-}
-
-function Chip({ children }) {
-  return (
-    <span className="win-border bg-paper px-2.5 py-1 text-xs font-semibold shadow-[2px_2px_0_0_rgba(43,43,37,0.7)]">
-      {children}
-    </span>
   )
 }
 
@@ -255,11 +245,6 @@ export default function App() {
                   {ME.quote}
                 </p>
                 <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink/75">{ME.summary}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {LANGUAGES.map((l) => (
-                    <Chip key={l}>{l}</Chip>
-                  ))}
-                </div>
               </div>
             </div>
           </Win>
@@ -322,7 +307,6 @@ export default function App() {
                     <MailIcon className="h-5 w-5" />
                     {ME.email}
                   </a>
-                  <span className="font-mono text-sm text-ink/70">{ME.phone}</span>
                 </div>
               </div>
               <div className="flex gap-3 sm:flex-col">
