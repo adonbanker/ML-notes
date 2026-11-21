@@ -172,7 +172,7 @@ export default function App() {
           shapes="mixed"
           cellSize={10}
           dotSize={0.75}
-          color="#5a5a62"
+          color="#8b8b95"
           hoverColor="#DBFF00"
           backgroundColor="#120f17"
           speed={1}
@@ -190,7 +190,7 @@ export default function App() {
           introDuration={1.6}
           paused={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-night/30 via-night/55 to-night/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-night/10 via-night/35 to-night/70" />
       </div>
 
       {/* HERO */}
