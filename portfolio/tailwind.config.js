@@ -9,22 +9,28 @@ export default {
         mono: ['"VT323"', '"Courier New"', 'monospace'],
       },
       colors: {
-        paper: '#ecead8',
-        grid: '#d9d6c0',
-        olive: {
-          DEFAULT: '#7c7f4e',
-          dark: '#656841',
+        // Dark theme + Electric Lime accent
+        night: '#120f17',
+        panel: '#17141f',
+        edge: '#2a2633',
+        mist: '#9b98a6',
+        chalk: '#ece9f2',
+        lime: {
+          DEFAULT: '#DBFF00',
+          dim: '#aecb00',
         },
+        // legacy retro tokens (kept so nothing breaks mid-refactor)
+        paper: '#ecead8',
+        olive: { DEFAULT: '#7c7f4e', dark: '#656841' },
         cream: '#f3f1e2',
         ink: '#2b2b25',
-        accent: '#e8862b',
-        folder: '#e8c25a',
-        win: '#cfae3f',
+        accent: '#DBFF00',
       },
       boxShadow: {
-        win: '4px 4px 0 0 rgba(43,43,37,0.9)',
-        'win-lg': '8px 8px 0 0 rgba(43,43,37,0.85)',
-        icon: '3px 3px 0 0 rgba(43,43,37,0.8)',
+        win: '0 8px 30px -8px rgba(0,0,0,0.6)',
+        'win-lg': '0 20px 60px -20px rgba(0,0,0,0.75)',
+        icon: '0 4px 14px -4px rgba(0,0,0,0.6)',
+        'lime-glow': '0 0 24px -4px rgba(219,255,0,0.45)',
       },
       keyframes: {
         'win-open': {

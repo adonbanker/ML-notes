@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -12,32 +12,29 @@ html {
 
 body {
   margin: 0;
-  background-color: #ecead8;
-  /* Graph-paper grid */
-  background-image:
-    linear-gradient(rgba(124, 127, 78, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 127, 78, 0.16) 1px, transparent 1px),
-    linear-gradient(rgba(124, 127, 78, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 127, 78, 0.07) 1px, transparent 1px);
-  background-size:
-    96px 96px,
-    96px 96px,
-    24px 24px,
-    24px 24px;
-  color: #2b2b25;
+  background-color: #120f17;
+  color: #ece9f2;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Pixel-edge window corners feel */
+/* Dark glass window panel */
 .win-border {
-  border: 2px solid #2b2b25;
+  border: 1px solid rgba(219, 255, 0, 0.14);
+  background: linear-gradient(180deg, rgba(27, 23, 36, 0.82), rgba(18, 15, 23, 0.82));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Focus visibility for keyboard users */
 :focus-visible {
-  outline: 3px solid #e8862b;
+  outline: 2px solid #dbff00;
   outline-offset: 2px;
+}
+
+::selection {
+  background: #dbff00;
+  color: #120f17;
 }
 
 @media (prefers-reduced-motion: reduce) {

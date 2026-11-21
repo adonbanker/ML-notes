@@ -57,7 +57,7 @@ export default function Boot({ onDone }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0c0f0a] transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0810] transition-opacity duration-500 ${
         closing ? 'pointer-events-none opacity-0' : 'opacity-100'
       }`}
       aria-hidden="true"
@@ -70,22 +70,22 @@ export default function Boot({ onDone }) {
             'repeating-linear-gradient(0deg, rgba(0,0,0,0.6) 0 1px, transparent 1px 3px)',
         }}
       />
-      <div className="w-full max-w-lg px-6 font-mono text-[15px] leading-relaxed text-[#8fd14f]">
+      <div className="w-full max-w-lg px-6 font-mono text-[15px] leading-relaxed text-[#DBFF00]">
         {LINES.slice(0, shown).map((l, i) => (
           <div key={i} className="whitespace-pre">
             {l}
           </div>
         ))}
-        <span className="inline-block h-4 w-2 translate-y-0.5 animate-blink bg-[#8fd14f]" />
+        <span className="inline-block h-4 w-2 translate-y-0.5 animate-blink bg-[#DBFF00]" />
 
         <div className="mt-6">
-          <div className="mb-1 flex justify-between text-xs text-[#8fd14f]/70">
+          <div className="mb-1 flex justify-between text-xs text-[#DBFF00]/70">
             <span>LOADING</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <div className="h-3 w-full border border-[#8fd14f]/60">
+          <div className="h-3 w-full border border-[#DBFF00]/60">
             <div
-              className="h-full bg-[#8fd14f] transition-all duration-150"
+              className="h-full bg-[#DBFF00] transition-all duration-150"
               style={{ width: `${progress}%` }}
             />
           </div>
