@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        display: ['Archivo', 'system-ui', 'sans-serif'],
+        display: ['"Galgo Condensed"', 'Oswald', '"Archivo Narrow"', 'Archivo', 'system-ui', 'sans-serif'],
         mono: ['"VT323"', '"Courier New"', 'monospace'],
       },
       colors: {

@@ -197,7 +197,7 @@ export default function App() {
       <section className="mx-auto flex min-h-[92vh] max-w-4xl flex-col items-center justify-center px-6 text-center">
         <Reveal>
           <p className="font-mono text-sm uppercase tracking-[0.3em] text-lime">hi, i'm</p>
-          <h1 className="mt-4 font-display text-5xl font-black tracking-tight text-chalk sm:text-7xl md:text-8xl">
+          <h1 className="mt-3 font-display text-6xl font-bold uppercase leading-[0.88] tracking-tight text-chalk sm:text-8xl md:text-[8.5rem]">
             {ME.name}
           </h1>
           <p className="mt-4 text-base font-medium tracking-wide text-mist sm:text-lg">{ME.role}</p>
@@ -319,7 +319,7 @@ export default function App() {
           </Reveal>
           <Reveal delay={80}>
             <div className="rounded-2xl border border-edge bg-white/[0.03] p-8 text-center sm:p-12">
-              <h3 className="font-display text-3xl font-black text-chalk sm:text-4xl">Let's talk</h3>
+              <h3 className="font-display text-4xl font-bold uppercase tracking-tight text-chalk sm:text-5xl">Let's talk</h3>
               <p className="mx-auto mt-3 max-w-md text-sm text-chalk/70">
                 Have a project, an opportunity, or want to chat about AI & sustainability? Reach out.
               </p>
